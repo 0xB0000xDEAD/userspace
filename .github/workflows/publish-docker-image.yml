@@ -1,4 +1,7 @@
 name: Publish Docker Image
+permissions:
+  packages: write
+  statuses: write
 on:
   push:
     branches:
