@@ -48,32 +48,33 @@ RUN \
     addgroup ${user} docker
 
 COPY ./ /home/${user}/.userspace/
-RUN \
-    git clone --recursive https://${vcsprovider}/${vcsowner}/${dotfiles} /home/${user}/.dotfiles && \
-    chown -R ${user}:${group} /home/${user}/.dotfiles && \
-    chown -R ${user}:${group} /home/${user}/.userspace
-# For advanced configuration where you would do ssh-agent and gpg-agent passthrough
-# cd /home/${user}/.userspace && \
-# git remote set-url origin git@${vcsprovider}:${vcsowner}/${userspace} && \
-# cd /home/${user}/.dotfiles && \
-# git remote set-url origin git@${vcsprovider}:${vcsowner}/${dotfiles}
 
-USER ${user}
-RUN \
-    cd $HOME/.dotfiles && \
-    ./install-profile default
+# RUN \
+#     git clone --recursive https://${vcsprovider}/${vcsowner}/${dotfiles} /home/${user}/.dotfiles && \
+#     chown -R ${user}:${group} /home/${user}/.dotfiles && \
+#     chown -R ${user}:${group} /home/${user}/.userspace
+# # For advanced configuration where you would do ssh-agent and gpg-agent passthrough
+# # cd /home/${user}/.userspace && \
+# # git remote set-url origin git@${vcsprovider}:${vcsowner}/${userspace} && \
+# # cd /home/${user}/.dotfiles && \
+# # git remote set-url origin git@${vcsprovider}:${vcsowner}/${dotfiles}
+
+# USER ${user}
+# RUN \
+#     cd $HOME/.dotfiles && \
+#     ./install-profile default
 
 
-RUN \
-    cd $HOME/.dotfiles && \
-    ./install-profile default && \
-    cd $HOME/.userspace && \
-    ./install-standalone \
-    zsh-dependencies \
-    zsh-plugins \
-    vim-dependencies \
-    vim-plugins \
-    tmux-plugins
+# RUN \
+#     cd $HOME/.dotfiles && \
+#     ./install-profile default && \
+#     cd $HOME/.userspace && \
+#     ./install-standalone \
+#     zsh-dependencies \
+#     zsh-plugins \
+#     vim-dependencies \
+#     vim-plugins \
+#     tmux-plugins
 
 
 ENV HISTFILE=/config/.history
