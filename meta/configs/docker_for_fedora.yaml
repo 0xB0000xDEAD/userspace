@@ -1,10 +1,18 @@
 - shell:
-      - [dnf -y install dnf-plugins-core, Install dnf-plugins-core...]
-      - [
-            dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo,
-        ]
-      - [
-            dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin,
-            Installing docker...,
-        ]
-      - [systemctl start docker, Starting docker service...]
+    - [dnf -y install dnf-plugins-core, Install dnf-plugins-core...]
+    - [
+        dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo,
+      ]
+    - [
+        dnf -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin,
+        Installing docker...,
+      ]
+    - [systemctl enable docker.service, Enable docker.service...]
+    - [systemctl enable containerd.service, Enable containerd.service...]
+    - [systemctl start docker, Starting docker service...]
+
+    # See https://docs.docker.com/engine/security/#docker-daemon-attack-surface
+    
+    # - [groupadd docker, Add docker group...]
+    # - [usermod -aG docker $USER, Add docker group...]
+    # - [newgrp docker, Re-evaluated group membership for $USER...]
