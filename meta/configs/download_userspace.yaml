@@ -1,0 +1,5 @@
+- shell:
+    - [
+        docker pull ghcr.io/0xb0000xdead/userspace:main,
+        Downloading userspace container...,
+      ]
