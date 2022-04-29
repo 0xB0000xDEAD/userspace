@@ -1,0 +1,5 @@
+- shell:
+    - [
+        docker pull <Docker Hub Username>/userspace:latest,
+        Downloaiding dotfiles container...,
+      ]
