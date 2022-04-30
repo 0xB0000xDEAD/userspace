@@ -39,7 +39,10 @@ RUN \
     docker \
     docker-compose \
     tmux \
-    jq
+    jq \
+    bat \
+    neofetch
+
 
 
 RUN \
@@ -76,6 +79,8 @@ COPY ./ /home/${user}/.userspace/
 #     vim-plugins \
 #     tmux-plugins
 
+RUN \ 
+    && if [ ! -d ~/.fzf ]; then git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; fi && ~/.fzf/install --key-bindings --completion --no-update-rc 
 
 ENV HISTFILE=/config/.history
 
