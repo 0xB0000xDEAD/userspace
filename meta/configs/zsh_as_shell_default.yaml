@@ -1,0 +1,7 @@
+- shell:
+    - [dnf install -y util-linux-user, Install util-linux-user...]
+    - command: chsh -s $(which zsh) johndoe
+      stdin: true
+      stdout: true
+      description: Setting zsh as default shell
+      quiet: false

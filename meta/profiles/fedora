@@ -1,2 +1,4 @@
 docker_for_fedora-sudo
 download_userspace-sudo
+host-shims-sudo
+#zsh_as_shell_default-sudo
