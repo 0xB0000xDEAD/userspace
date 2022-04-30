@@ -62,7 +62,7 @@ COPY ./ /home/${user}/.userspace/
 # # cd /home/${user}/.dotfiles && \
 # # git remote set-url origin git@${vcsprovider}:${vcsowner}/${dotfiles}
 
-# USER ${user}
+USER ${user}
 # RUN \
 #     cd $HOME/.dotfiles && \
 #     ./install-profile default
