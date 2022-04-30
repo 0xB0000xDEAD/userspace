@@ -8,4 +8,4 @@ sudo docker run -it --rm \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -u `id -u` \
   --network host \
-  ghcr.io/0xB0000xDEAD/userspace:main "$@"
+  ghcr.io/0xb0000xdead/userspace:main "$@"
